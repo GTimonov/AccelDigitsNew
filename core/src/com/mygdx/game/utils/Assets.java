@@ -9,10 +9,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class Assets {
 
-    public static BitmapFont font;
+
 
     public static void load () {
 
-        font = new BitmapFont(Gdx.files.internal("electrobyte.fnt"), Gdx.files.internal("electrobyte.png"), false);
+        //font = new BitmapFont(Gdx.files.internal("electrobyte.fnt"), Gdx.files.internal("electrobyte.png"), false);
     }
 }

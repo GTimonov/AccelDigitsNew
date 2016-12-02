@@ -1,6 +1,8 @@
 package com.mygdx.game.render;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -31,6 +33,8 @@ public class DebugRenderer implements IRenderer{
     private Rectangle resetBtnRect;
     private Vector2 startPoint = new Vector2(0, 0);
 
+
+
     public DebugRenderer(SpriteBatch batch, Model model)
     {
         this.model = model;
@@ -53,6 +57,15 @@ public class DebugRenderer implements IRenderer{
         drawAccelerometerRender();
         setupCamera();
         drawLabels();
+        checkForInput();
+    }
+
+    private void checkForInput(){
+        if (Gdx.input.justTouched()) {
+            if (resetBtnRect.contains(Gdx.input.getX(), model.STAGE_HEIGHT - Gdx.input.getY())) {
+                resetGraphic();
+            }
+        }
     }
 
     private void drawLabels(){
@@ -97,6 +110,11 @@ public class DebugRenderer implements IRenderer{
         camera.position.set(startPoint, 0);
     }
 
+    private void resetGraphic(){
+        Gdx.gl.glClearColor(Color.BLACK.r, Color.BLACK.g, Color.BLACK.b, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        pointX = 0;
+    }
 
 }
 

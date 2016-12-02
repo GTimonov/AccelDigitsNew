@@ -5,7 +5,7 @@ package com.mygdx.game.model;
  */
 public class Settings {
 
-    public static final Boolean REMOTE_ANDROID_MODE = true;
+    public static final Boolean REMOTE_ANDROID_MODE = false;
     public static final Boolean ANDROID_SHOW_ACCELEROMETER_MODE = true;
 
     /** максимальное значение акселерометра по оси **/
