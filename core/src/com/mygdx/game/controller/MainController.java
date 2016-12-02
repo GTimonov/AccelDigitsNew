@@ -1,11 +1,7 @@
 package com.mygdx.game.controller;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.Logger;
 import com.mygdx.game.model.Model;
-import com.mygdx.game.model.Settings;
-import com.mygdx.game.utils.KalmanFilter;
 
 
 /**
@@ -29,8 +25,8 @@ public class MainController {
         model.accelY = Gdx.input.getAccelerometerY();
         model.accelZ = Gdx.input.getAccelerometerZ();
         model.accelX = noFiltered;//model.filterValue(noFiltered);
-
-        Gdx.app.log("Accelerometer X clear", Float.toString(noFiltered));
+        //Gdx.app.log("Gyro avaliable", String.valueOf(Gdx.input.isPeripheralAvailable(Input.Peripheral.Gyroscope)));
+        //Gdx.app.log("Accelerometer X clear", Float.toString(noFiltered));
         //Gdx.app.log("Accelerometer X filtered             ", Float.toString(model.accelX));
         if (noFiltered != model.accelX)
             Gdx.app.log("***", "**");

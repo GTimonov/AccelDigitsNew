@@ -112,7 +112,7 @@ public class DebugRenderer implements IRenderer{
 
     private void resetGraphic(){
         Gdx.gl.glClearColor(Color.BLACK.r, Color.BLACK.g, Color.BLACK.b, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         pointX = 0;
     }
 
