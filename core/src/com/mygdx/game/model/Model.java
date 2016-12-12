@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.input.RemoteInput;
+import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.utils.Assets;
 import com.mygdx.game.utils.KalmanFilter;
 
@@ -28,6 +29,7 @@ public class Model {
 
     public boolean isMoving = false;
 
+    public String currentDigit = "!";
 
 
     private KalmanFilter kalman;
@@ -56,7 +58,9 @@ public class Model {
             isMoving = true;
         }
     }
+    public void setupCurrentDigit(){
 
+    }
 
 }
 

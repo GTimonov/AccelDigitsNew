@@ -28,15 +28,15 @@ public class MainController {
         //Gdx.app.log("Gyro avaliable", String.valueOf(Gdx.input.isPeripheralAvailable(Input.Peripheral.Gyroscope)));
         //Gdx.app.log("Accelerometer X clear", Float.toString(noFiltered));
         //Gdx.app.log("Accelerometer X filtered             ", Float.toString(model.accelX));
-        if (noFiltered != model.accelX)
-            Gdx.app.log("***", "**");
+//        if (noFiltered != model.accelX)
+//            Gdx.app.log("***", "**");
 
         /*if (!model.isMoving)
             model.checkForMoving();
         else
             model.*/
 
-
+        model.setupCurrentDigit();
 
 
     }

@@ -8,8 +8,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Super TEST";
-		config.width = 384;
-		config.height = 640;
+		config.width = 192;
+		config.height = 320;
 
 		new LwjglApplication(new AccelDigits(), config);
 	}

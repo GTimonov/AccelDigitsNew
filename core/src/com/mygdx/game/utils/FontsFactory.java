@@ -1,8 +1,11 @@
 package com.mygdx.game.utils;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.Vector2;
+import com.mygdx.game.model.Settings;
 
 /**
  * Created by Goshan on 02.12.2016.
@@ -17,18 +20,33 @@ public abstract class FontsFactory {
 
     public static BitmapFont getElectrobyteFont(int size)
     {
-
-        electrobyteGenerator = new FreeTypeFontGenerator(Gdx.files.internal("electrobyte.ttf"));
         if (parameter == null) {
             parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
             parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
         }
         parameter.size = size;
+        parameter.borderStraight = true;
+        parameter.borderColor = new Color(0xddffdd);
+        parameter.spaceX = -(int)(size*.1);
+        BitmapFont font = getElectrobyteGenerator().generateFont(parameter);
 
-        BitmapFont font = electrobyteGenerator.generateFont(parameter);
-        electrobyteGenerator.dispose();
+        getElectrobyteGenerator().dispose();
         return font;
     }
+
+    public static int getElectrobyteSizeBySquare(Vector2 size){
+
+        int size_ = getElectrobyteGenerator().scaleToFitSquare((int)size.x, (int)size.y, 1);
+        return size_;
+    }
+
+    private static FreeTypeFontGenerator getElectrobyteGenerator(){
+        if (electrobyteGenerator == null)
+            electrobyteGenerator = new FreeTypeFontGenerator(Gdx.files.internal("electrobyte.ttf"));
+        return electrobyteGenerator;
+    }
+
 
 
 }
